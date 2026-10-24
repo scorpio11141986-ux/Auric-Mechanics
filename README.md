@@ -1,6 +1,6 @@
 # Auric Mechanics
 
-Public source snapshot of the bounded P3-A local reading experience, October 24, 2026.
+Public source snapshot of the bounded P3-A local reading experience and final compact-opening correction, October 24, 2026.
 
 The source includes chart calculations, Composite topology, interactive BodyGraph UI, saved-person reading selection, evidence/provenance contracts, deterministic fallback, and the local development reading adapter. Reading depth, familiarity and display expansion remain separate controls. The local LLM route is development-only and uses explicit chart-scoped consent.
 
@@ -8,7 +8,7 @@ The source includes chart calculations, Composite topology, interactive BodyGrap
 
 This repository contains code and build configuration. It excludes interpretation corpora (including frozen Gold, R4 and F1–F7 source records), source archives, real-person birth fixtures, personal readings/traces/screenshots, credentials, local user storage, audit bundles and private Git history. Licensed BodyGraph vector geometry and source-integrity hash metadata are included with the third-party notices; they contain no interpretation corpus or personal chart.
 
-The public export has its own initial history. It does not recover an upstream history or replace the complete private project/review record. `PUBLIC_EXPORT_MANIFEST.json` records source hashes and the two public-copy-only sanitizations.
+The public export has its own initial history. It does not recover an upstream history or replace the complete private project/review record. `PUBLIC_EXPORT_MANIFEST.json` records source hashes and the public-copy transformations.
 
 ## Required local content
 
@@ -26,7 +26,7 @@ With those private prerequisites available, restore dependencies from the lockfi
 
 ## Verification and review status
 
-The complete private P3-A candidate passed 396 application tests with zero failures and one optional skip; typecheck passed. Four actual Individual/Composite browser cases passed, including three reading depths, evidence, fallback, explicit consent and 320/390/820/1440 layouts. Existing captured responses were reused without new reading-generation calls. Those tests depended on private content and their named evidence is intentionally absent from this public repository; the public subset is not claimed to reproduce the full suite without that content.
+The complete private mobile-opening candidate passed 402 application tests with zero failures and one optional skip; typecheck and six new compact-opening regressions passed. Five saved-person Individual/Composite cases passed the complete browser flow, including 30 Quick/Standard/Deep checks at 320/390px, exact supported compact units, chart expansion, evidence, fallback, consent and navigation. All existing outputs were reused unchanged; one separately authorized new example was generated. Named evidence and protected content are intentionally absent from this public repository. The public subset is not claimed to reproduce the full suite without the private prerequisites.
 
 Independent reading-quality/security review, owner visual acceptance, physical-device checks, source rights and commercial provider eligibility remain open. Full P3 and public deployment are not authorized by this source upload. No deployment workflow is included.
 

@@ -1,9 +1,9 @@
 {
   "schema": "AuricPublicCodeExportV1",
-  "createdUtc": "2026-10-24T21:30:13.038512+00:00",
+  "createdUtc": "2026-10-24T23:28:07.616031+00:00",
   "privateDocumentationHead": "5b058a7fb3aad2c1224fb92455830b73f68674b5",
-  "privateCompletionArchiveSha256": "cf6c68fb6ba6249dee7198b28ebb9b77e16a4e7b81ef5eaa472641c6ef32a8a3",
-  "history": "New public source snapshot; private Git objects and original source/reading records are excluded.",
+  "privateCompletionArchiveSha256": "947f3f9d02ba79c8574d498f79fa46ef146846a3e63889bee3ebaa596c4fa8cf",
+  "history": "Normal additive update to the isolated public code history; no private Git objects or reading/source records included.",
   "transformations": [
     {
       "path": "technical-integration-source/companion-mobile/server/local-reading/packet.ts",
@@ -16,6 +16,12 @@
       "beforeSha256": "da82ee10b3db988680751257632eec69a0e8c35a874ae0f6ac7e086a08565bb5",
       "afterSha256": "5bf51408cc2c3acdd3cb4aa1beb1cca1246cf18a9d7adf0578489fb74e90e5ad",
       "change": "Use a fictional name for the synthetic planet-name collision test; no real-person fixture or reading is included."
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/compact-opening.ts",
+      "beforeSha256": "5371d75d4ea24c9a2a6f05e3eda170f358fff37d76cfb87201a0e77c442a8757",
+      "afterSha256": "eab9e12818dfc90ce700a875b969c6ad52cbd782bf6d8e7348ab678be6ddd079",
+      "change": "Remove one trailing space in the public copy; no semantic change."
     }
   ],
   "excludedEmbeddedContent": [
@@ -32,23 +38,28 @@
     },
     {
       "path": "PUBLIC_EXPORT_SCAN.json",
-      "bytes": 422,
-      "sha256": "807ccf5840a5610382df3af7e3db138861ff0e37422930b1de8a72843e63f006"
+      "bytes": 389,
+      "sha256": "86004fc3667f92c9f3b952692effe3967adbaa5516f01a6882d94e45a4bf32d3"
     },
     {
       "path": "README.md",
-      "bytes": 3603,
-      "sha256": "43b7f5b6a829e69f950b972f824903b717866abcf9eb699eb664f89290cc3c92"
+      "bytes": 3759,
+      "sha256": "ea7098f06c2151204f011daa86318552ae1382a9079b7df97e7af32a119a8146"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/App.tsx",
+      "bytes": 68695,
+      "sha256": "1d1639185bde8b2ca08c0b3d718315927190d96d5111840a289cf0f5cd78f025"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/THIRD_PARTY_NOTICES.md",
+      "bytes": 5466,
+      "sha256": "5fb897d7c233d0c2e924b61e3d103e2b824242e4b3bd393c9809d9cfd970b90f"
     },
     {
       "path": "technical-integration-source/companion-mobile/app.json",
       "bytes": 428,
       "sha256": "78b91157a796c34b79099d7454907f9c4abc2341b570d7e969f5d4e034d71d2e"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/App.tsx",
-      "bytes": 68549,
-      "sha256": "71100afabf3c03bc1b06a7d7e7a5621b7358a510069b6a99b3fcd079710fcab2"
     },
     {
       "path": "technical-integration-source/companion-mobile/eas.json",
@@ -391,6 +402,11 @@
       "sha256": "86fb14a6853e50e5358f25ccad99b5ea790ae7a6cccff3fd6e57fa93f4da4d89"
     },
     {
+      "path": "technical-integration-source/companion-mobile/src/reading/compact-opening.ts",
+      "bytes": 8444,
+      "sha256": "eab9e12818dfc90ce700a875b969c6ad52cbd782bf6d8e7348ab678be6ddd079"
+    },
+    {
       "path": "technical-integration-source/companion-mobile/src/reading/compiler.ts",
       "bytes": 9773,
       "sha256": "f40dced55f899b116767976239c48045b0991344fcf1e2ca0ee601b26173d0d9"
@@ -536,29 +552,9 @@
       "sha256": "6c5adc1f41263b3626af8487ee172a7f92906113847d20ccee77979582a5ed80"
     },
     {
-      "path": "technical-integration-source/companion-mobile/src/ui/bodygraph-geometry.ts",
-      "bytes": 4933,
-      "sha256": "27e70118d9247964cc1c9b42f0fe4011f13bf00976ecc33bd929bf86a1c4fa1c"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/bodygraph-reference.json",
-      "bytes": 14525,
-      "sha256": "d4f419634f2074823982a826d40cc7e09cd086e807321b0efa49ea36b5709412"
-    },
-    {
       "path": "technical-integration-source/companion-mobile/src/ui/BodyGraph.tsx",
       "bytes": 29834,
       "sha256": "6e61f5f3ec50e0e9690822363c98e9f23e5c44d5fa156ec522078793ad626c1f"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/brand.ts",
-      "bytes": 104,
-      "sha256": "0ee018d9371b290cdacc075cd8df32c1958b63d4d1012eaa9d013c5063ba6d57"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/bridge-explorer-state.ts",
-      "bytes": 3224,
-      "sha256": "9b105b5335daf15e77cb7354d08f1cdc6a580409b2e5a25de351a7cd83e56460"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/BridgeExplorer.tsx",
@@ -569,26 +565,6 @@
       "path": "technical-integration-source/companion-mobile/src/ui/ChartWorkspace.tsx",
       "bytes": 17454,
       "sha256": "6fd0e8bb25af40b0d90a6a880dda6445e2a002a0d1e9cb062ca4ef40715527e7"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/compact-bodygraph-layout.ts",
-      "bytes": 276,
-      "sha256": "74d7203ed26c9167b2b047ba98f0d0cf26f7ac9acc01ebdd2d31bda640bba673"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/composite-temporal-contract.ts",
-      "bytes": 2309,
-      "sha256": "2616ba9fa31408250875fb9b212d522ef5d2da2050087f2b04a5a898655f21a6"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/composite-workspace-model.ts",
-      "bytes": 10854,
-      "sha256": "34ab69e55abcbdb345a3ac2b9f93bcdf12576e3bf0026561201ceadf6792a2f3"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/composite-workspace-state.ts",
-      "bytes": 10019,
-      "sha256": "b395a62c5ff722dd241d2651b56303e813ed6cb37ff45568b37a79a0598335f0"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/CompositeBodyGraph.tsx",
@@ -631,11 +607,6 @@
       "sha256": "dee4926e0abda93ea0a6fadb513ac886138fabeaa7d072a8734e2bf973c33a64"
     },
     {
-      "path": "technical-integration-source/companion-mobile/src/ui/inspector-reading.ts",
-      "bytes": 8485,
-      "sha256": "fdacc516c218f105f64e444e5f7cb7fc5eb2a48c0b981fda5566901ef9df2854"
-    },
-    {
       "path": "technical-integration-source/companion-mobile/src/ui/Knowledge.tsx",
       "bytes": 7748,
       "sha256": "e8ef244ff503d4804ecf9f409b11b51202c006689dbd3703d6934415ebf7910b"
@@ -656,16 +627,6 @@
       "sha256": "80756498b7c023bec118b6f5aa5fd0e64467669872d816c6c7cecc4d5c8a44cc"
     },
     {
-      "path": "technical-integration-source/companion-mobile/src/ui/planet-symbols.ts",
-      "bytes": 307,
-      "sha256": "a7071b1368194073189e6a45e06c1435606d7ca5fe9bd2f67a3125c55b871ef9"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/react-dom.d.ts",
-      "bytes": 149,
-      "sha256": "44bf7eb3fdd25dc42954dcd0e5f455b875403ec49dfe0a1ea25733856daf62a8"
-    },
-    {
       "path": "technical-integration-source/companion-mobile/src/ui/ReaderPreferences.tsx",
       "bytes": 7617,
       "sha256": "70eb9703deaece579ad910b66b1e0777d396500b15175c7f566669a316909933"
@@ -674,6 +635,81 @@
       "path": "technical-integration-source/companion-mobile/src/ui/ReadingEvidence.tsx",
       "bytes": 9483,
       "sha256": "a6904ddcb3eda5937d2b52aaa7bddedcf86dca5e5d4ec9e68160c44de8ad9521"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/RelationshipReading.tsx",
+      "bytes": 20048,
+      "sha256": "c1ed59791e5a40992cc5b3bc8b42cd058ea15132909886a5463e57b25de617f9"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/SavedReadingExperience.tsx",
+      "bytes": 31932,
+      "sha256": "7a7c7db313f94b6e62d5a329b9fcae016917a5e694ab6c97e277efc096b70f79"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/SuggestedQuestions.tsx",
+      "bytes": 3053,
+      "sha256": "232872782e42266fc90d8e03c641dce640da9147b52fc7022c76556f00683f83"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/TimezonePicker.tsx",
+      "bytes": 4275,
+      "sha256": "4abf6c3d8957a8c63e02081439102c1bcb599019eaf2eed92bff221171dab71f"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/bodygraph-geometry.ts",
+      "bytes": 4933,
+      "sha256": "27e70118d9247964cc1c9b42f0fe4011f13bf00976ecc33bd929bf86a1c4fa1c"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/bodygraph-reference.json",
+      "bytes": 14525,
+      "sha256": "d4f419634f2074823982a826d40cc7e09cd086e807321b0efa49ea36b5709412"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/brand.ts",
+      "bytes": 104,
+      "sha256": "0ee018d9371b290cdacc075cd8df32c1958b63d4d1012eaa9d013c5063ba6d57"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/bridge-explorer-state.ts",
+      "bytes": 3224,
+      "sha256": "9b105b5335daf15e77cb7354d08f1cdc6a580409b2e5a25de351a7cd83e56460"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/compact-bodygraph-layout.ts",
+      "bytes": 276,
+      "sha256": "74d7203ed26c9167b2b047ba98f0d0cf26f7ac9acc01ebdd2d31bda640bba673"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/composite-temporal-contract.ts",
+      "bytes": 2309,
+      "sha256": "2616ba9fa31408250875fb9b212d522ef5d2da2050087f2b04a5a898655f21a6"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/composite-workspace-model.ts",
+      "bytes": 10854,
+      "sha256": "34ab69e55abcbdb345a3ac2b9f93bcdf12576e3bf0026561201ceadf6792a2f3"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/composite-workspace-state.ts",
+      "bytes": 10019,
+      "sha256": "b395a62c5ff722dd241d2651b56303e813ed6cb37ff45568b37a79a0598335f0"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/inspector-reading.ts",
+      "bytes": 8485,
+      "sha256": "fdacc516c218f105f64e444e5f7cb7fc5eb2a48c0b981fda5566901ef9df2854"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/planet-symbols.ts",
+      "bytes": 307,
+      "sha256": "a7071b1368194073189e6a45e06c1435606d7ca5fe9bd2f67a3125c55b871ef9"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/react-dom.d.ts",
+      "bytes": 149,
+      "sha256": "44bf7eb3fdd25dc42954dcd0e5f455b875403ec49dfe0a1ea25733856daf62a8"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/relationship-reading-model.ts",
@@ -686,29 +722,9 @@
       "sha256": "b0fe7aae5d61feab32cafdfaf8596689b324bd861c1333dc80bfc2b7298d55eb"
     },
     {
-      "path": "technical-integration-source/companion-mobile/src/ui/RelationshipReading.tsx",
-      "bytes": 20048,
-      "sha256": "c1ed59791e5a40992cc5b3bc8b42cd058ea15132909886a5463e57b25de617f9"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/SavedReadingExperience.tsx",
-      "bytes": 31123,
-      "sha256": "b8c3079d9cf805a26290d91ec8c7fa8b761aaf5ead2259c5123c1c1a10004723"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/SuggestedQuestions.tsx",
-      "bytes": 3053,
-      "sha256": "232872782e42266fc90d8e03c641dce640da9147b52fc7022c76556f00683f83"
-    },
-    {
       "path": "technical-integration-source/companion-mobile/src/ui/theme.ts",
       "bytes": 953,
       "sha256": "425d26ff604bffe714c5261034f49a2ace78ebb3ea7e933a7292e64ad9399319"
-    },
-    {
-      "path": "technical-integration-source/companion-mobile/src/ui/TimezonePicker.tsx",
-      "bytes": 4275,
-      "sha256": "4abf6c3d8957a8c63e02081439102c1bcb599019eaf2eed92bff221171dab71f"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/ui01-state.ts",
@@ -729,6 +745,11 @@
       "path": "technical-integration-source/companion-mobile/tests/bridge-explorer-state.test.ts",
       "bytes": 10593,
       "sha256": "98f63a8d2abf36d084e507a9b8d345b618e1defc1a6df67153e546930410b257"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/compact-opening.test.ts",
+      "bytes": 5532,
+      "sha256": "9d37f580532d1cca5aa69e4f3aa2e6cb9b9581e83b8f3255c1afdd503d9c6a27"
     },
     {
       "path": "technical-integration-source/companion-mobile/tests/composite-state.test.ts",
@@ -781,14 +802,11 @@
       "sha256": "4dd88208fa034a2fb7cf31a694350917186aa75986f45bea8f1ce045723e2c38"
     },
     {
-      "path": "technical-integration-source/companion-mobile/THIRD_PARTY_NOTICES.md",
-      "bytes": 5466,
-      "sha256": "5fb897d7c233d0c2e924b61e3d103e2b824242e4b3bd393c9809d9cfd970b90f"
-    },
-    {
       "path": "technical-integration-source/companion-mobile/tsconfig.json",
       "bytes": 245,
       "sha256": "dd0d9e37efbed8bea71fee389bb7e26e04bcc860d3a1e7a7d6270e2f3966c569"
     }
-  ]
+  ],
+  "privateCorrectionScope": "Generic compact-opening support units, phone presentation and single-line navigation; datasets and personal proof artifacts excluded.",
+  "previousPrivateCompletionArchiveSha256": "cf6c68fb6ba6249dee7198b28ebb9b77e16a4e7b81ef5eaa472641c6ef32a8a3"
 }

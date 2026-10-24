@@ -572,10 +572,10 @@ function Companion() {
             style={[
               s.navItem,
               mobileNav && {
-                flex:t==="Knowledge"?1.6:t==="Compare"?1.25:1,
+                flex:t==="Knowledge"?1.6:t==="Compare"?1.25:t==="Reading"?1.2:1,
                 flexDirection: "column",
-                gap: 4,
-                paddingVertical: 10,
+                gap: 3,
+                paddingVertical: 8,
                 paddingHorizontal: 2,
               },
               tab === t && s.navActive,
@@ -611,10 +611,10 @@ function Companion() {
               <Text style={{ color: theme.text, fontSize: 13, lineHeight: 20 }}>{t}</Text>
             </View>}
             {!rail && (
-              <Text
+              <Text testID={`nav-label-${t}`} numberOfLines={1}
                 style={[
                   s.navText,
-                  mobileNav && {fontSize:width<360?11:12,lineHeight:16,textAlign:"center",maxWidth:"100%",flexShrink:1},
+                  mobileNav && {fontSize:width<360?10.5:12,lineHeight:16,textAlign:"center",maxWidth:"100%",flexShrink:1},
                   tab === t && { color: theme.accent, fontWeight: "600" },
                 ]}
               >
@@ -768,10 +768,10 @@ function Companion() {
   return (
     <SafeAreaView style={s.safe}>
       <StatusBar style="light" />
-      <View style={s.header}>
+      <View style={[s.header,mobileNav&&tab==="Reading"&&{paddingVertical:8}]}>
         <View style={{flexGrow:1,flexBasis:160,minWidth:0}}>
           <Text style={s.brand}>{PRODUCT_NAME}</Text>
-          <Text style={s.small}>Human Design</Text>
+          {!(mobileNav&&tab==="Reading")&&<Text style={s.small}>Human Design</Text>}
         </View>
         <View style={s.local}>
           <Feather name="hard-drive" size={13} color={theme.accent} />
