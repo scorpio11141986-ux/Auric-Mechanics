@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "filesScanned": 152,
+  "hits": [],
+  "corpusPrefixScan": "PASS \u2014 no 160-character source field prefix in selected code/test files",
+  "scope": "Allowlist plus exact marker boundaries, token-like literals and substantial verbatim corpus prefixes. Generic private-app permission labels are code, not real-person IDs. Not universal secret discovery.",
+  "privateContentIncluded": false
+}

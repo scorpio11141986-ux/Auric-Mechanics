@@ -1,0 +1,42 @@
+{
+  "name": "infinity-rae-companion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "data:import": "node scripts/import-data.mjs",
+    "export:web": "expo export --platform web",
+    "export:android": "expo export --platform android --output-dir dist-android",
+    "relay": "tsx server/index.ts",
+    "preview": "node scripts/preview.mjs",
+    "reading:local": "node scripts/local-reading-preview.mjs",
+    "package": "node scripts/package.mjs",
+    "eas-build-post-install": "node scripts/verify-data.mjs"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@vvo/tzdb": "6.198.0",
+    "astronomy-engine": "2.1.19",
+    "expo": "~57.0.27",
+    "expo-status-bar": "~57.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-svg": "15.15.4",
+    "react-native-web": "~0.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "~19.2.2",
+    "natalengine": "1.6.0",
+    "tsx": "^4.20.0",
+    "typescript": "~6.0.3"
+  }
+}

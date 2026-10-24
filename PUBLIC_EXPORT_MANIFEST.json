@@ -1,0 +1,794 @@
+{
+  "schema": "AuricPublicCodeExportV1",
+  "createdUtc": "2026-10-24T21:30:13.038512+00:00",
+  "privateDocumentationHead": "5b058a7fb3aad2c1224fb92455830b73f68674b5",
+  "privateCompletionArchiveSha256": "cf6c68fb6ba6249dee7198b28ebb9b77e16a4e7b81ef5eaa472641c6ef32a8a3",
+  "history": "New public source snapshot; private Git objects and original source/reading records are excluded.",
+  "transformations": [
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/packet.ts",
+      "beforeSha256": "44b367f7bf98401180d7dde4a18f4eea7a0df0677972ea681baa7e6156e89e4f",
+      "afterSha256": "ba0763ce1c95e865c7376b2590a7a1179ef9888379e292755ea0f021e867d8b7",
+      "change": "Remove the legacy named private proof registry and file locators. Keep the active generic saved-person packet compiler."
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/local-llm.test.ts",
+      "beforeSha256": "da82ee10b3db988680751257632eec69a0e8c35a874ae0f6ac7e086a08565bb5",
+      "afterSha256": "5bf51408cc2c3acdd3cb4aa1beb1cca1246cf18a9d7adf0578489fb74e90e5ad",
+      "change": "Use a fictional name for the synthetic planet-name collision test; no real-person fixture or reading is included."
+    }
+  ],
+  "excludedEmbeddedContent": [
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/foundation-candidates.ts",
+      "reason": "Embedded unapproved interpretation/teaching records; private content module, not public data."
+    }
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 365,
+      "sha256": "6d0acf09b06c9820edc60b5924510a920bd413f28c350d22ba5564c4c32e505e"
+    },
+    {
+      "path": "PUBLIC_EXPORT_SCAN.json",
+      "bytes": 422,
+      "sha256": "807ccf5840a5610382df3af7e3db138861ff0e37422930b1de8a72843e63f006"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3603,
+      "sha256": "43b7f5b6a829e69f950b972f824903b717866abcf9eb699eb664f89290cc3c92"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/app.json",
+      "bytes": 428,
+      "sha256": "78b91157a796c34b79099d7454907f9c4abc2341b570d7e969f5d4e034d71d2e"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/App.tsx",
+      "bytes": 68549,
+      "sha256": "71100afabf3c03bc1b06a7d7e7a5621b7358a510069b6a99b3fcd079710fcab2"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/eas.json",
+      "bytes": 263,
+      "sha256": "1bfaaa9ab5ac832f6605ef750edd4b3cb76280a0f8526a0853d894ddb1acc2f5"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/index.ts",
+      "bytes": 100,
+      "sha256": "a5ee9fdfb4ecbbf7e862f1c23a4d73ddd8e55f3037f80e406bc3a2be6d7d928c"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/package-lock.json",
+      "bytes": 297896,
+      "sha256": "7f31f68bf8da4327d07fc6c5bb9661c7f6b840a67934c9767192aaad0842ac58"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/package.json",
+      "bytes": 1305,
+      "sha256": "8201efc788a54e6aa2f3f8ff91c7345e9a79cb24d4856edc6831d34689e2919a"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/scripts/import-bodygraph-geometry.mjs",
+      "bytes": 3223,
+      "sha256": "2e13c09f25a2dad76a26400fd3815d5eefaca62456a4c5e0f3d82816c92777ab"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/scripts/import-data.mjs",
+      "bytes": 3501,
+      "sha256": "eae7d1073c8f2cad99f5ae83cd9d3aade30d834af2d0d822be96f57809fc33cd"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/scripts/local-reading-preview.mjs",
+      "bytes": 766,
+      "sha256": "3adfc0499aa49c481043273bfb5cb55e448513823054467ebf5d1822f48bb693"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/scripts/naming-audit.mjs",
+      "bytes": 3025,
+      "sha256": "6086b1cab0ab5f392398ea3d90386f2be9d9943d17d9723f5cca7c38c50356fc"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/scripts/package.mjs",
+      "bytes": 3175,
+      "sha256": "47590ddfcb6cb933df6ca5e83107b7b2ea6ef5e2fba2f98c0e9722bf9ae509b2"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/scripts/preview.mjs",
+      "bytes": 2102,
+      "sha256": "2abd60a656f72670b1bb6008d85e7631273035e80f76b95089aa7f5e6f6e9606"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/scripts/verify-data.mjs",
+      "bytes": 717,
+      "sha256": "d26aae7a64d6a7db6aac8b3f67436dfb86bca0f19fd4e6577d3bf94f74b19d68"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/index.ts",
+      "bytes": 13019,
+      "sha256": "0725c88ea610262d4e064b68f8c246fb385e0eea3d7e48f1364ca8cf91181e68"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/auth/connection.mjs",
+      "bytes": 7206,
+      "sha256": "304b3413a02d45ad6d3a45ea46b256bf21fe0f1c5600f817bfb7b0ef7edd7bd8"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/auth/protocol.mjs",
+      "bytes": 9054,
+      "sha256": "d3f273c0b998920c609549c18fcb4cbecc3b263e6e3eddacbf6be342a0df184c"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/auth/secure-store.ps1",
+      "bytes": 5798,
+      "sha256": "e46020a443ca06c52af6418388888b75c4b90792b3044a83ce8cfeb6de472a62"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/auth/store.mjs",
+      "bytes": 1320,
+      "sha256": "f6728ed8c1a601dd7412680749ad9f3ba168d05a6a27e0e7ce8603e2239405d0"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/index-p3a.ts",
+      "bytes": 14451,
+      "sha256": "3767cf7c97aded27f97d0f2351df28cfb77b42bf7f8209587777ae62d6995789"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/index.ts",
+      "bytes": 23,
+      "sha256": "d54a76fde88c5af08aa58f4de35d2eefedccf4f408ea419ad69b3e549f45a708"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/packet.ts",
+      "bytes": 9190,
+      "sha256": "ba0763ce1c95e865c7376b2590a7a1179ef9888379e292755ea0f021e867d8b7"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/prepare-worker.ts",
+      "bytes": 360,
+      "sha256": "9eee8b58b82c97d4d9d23968d2f9e3ab82522fc7c6097d914539d4f4d62542e0"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/provider.ts",
+      "bytes": 10386,
+      "sha256": "bcb31b668ccc5410510a62c3d8f62a0dddab8843598c18edc2423244c10637c0"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/result.ts",
+      "bytes": 1703,
+      "sha256": "3f181ad22cbc9c416fc45043baf5ce9e93c8ae56a77778114360e54b6cb6d7b7"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/selection.ts",
+      "bytes": 2279,
+      "sha256": "8c36470521a478ff213e94c3c58e937e0b80d743be85882cefa89d57982fd3ec"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/provider.ts",
+      "bytes": 4251,
+      "sha256": "962716ee6cf34a68f3469f47978c742b434834922bd6d0c76b76b82eebeb1f19"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/server/spend-guard.ts",
+      "bytes": 4301,
+      "sha256": "c51f1c058a35226dc4e9fd0b06b0f85f00daa162592dc4170ddbe98be4426cb8"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/content/inference-policy.ts",
+      "bytes": 1326,
+      "sha256": "24347aa0e1eb25ccff1c5d186ec0dc65cbff21d10456e636bd2685f51977c263"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/content/records.ts",
+      "bytes": 5984,
+      "sha256": "16dd6f46828213bbff763ea57bfb314298d86de9d12ba2a63d3dc1b81ef19d28"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/content/retrieval.ts",
+      "bytes": 4055,
+      "sha256": "b66d98f9c2fde4a220559822dc83c7ce8116d9d602e6c343ad2405ad4f4b9df4"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/astronomy.ts",
+      "bytes": 2469,
+      "sha256": "195faf320e39d03164f39176ca446e514e88f3a22a9924570ba3d68b5d921fc8"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/birth-time-analysis.ts",
+      "bytes": 9359,
+      "sha256": "7cc4470a487ed85a9cd794fcebe971ef57b264475e2e2c92dcda4d7cef07e893"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/birth.ts",
+      "bytes": 5028,
+      "sha256": "9bdb3a17a7c7d9f43322e9f7166b34f7fe39f24eb948c56f418a49f15e908305"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/bridges-contracts.ts",
+      "bytes": 3391,
+      "sha256": "5a5c5331e89d89630d75c6a46f7f9f158c82411241e36ead54fb6ac6835edd9d"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/bridges.ts",
+      "bytes": 27769,
+      "sha256": "39b2487d2e42b6f97d765bd6dcfa1cab208961dc4aefbd1a446fee433fcb0404"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/calculator.ts",
+      "bytes": 6281,
+      "sha256": "c64caefcdf48e605e3387d41ebf7a8de32409275fea44825945acfbb28745990"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/composite-contracts.ts",
+      "bytes": 6452,
+      "sha256": "2a625b150bfbeee97cea5fd06b822c7c3b6450e3b80ee61f7b299fe8a64b3770"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/composite-hash.ts",
+      "bytes": 4153,
+      "sha256": "41e7188fd34365e357cf3a05f9329e70e3bec46318e14c2fef0a4219dfdeac63"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/composite.ts",
+      "bytes": 34595,
+      "sha256": "8051004589de506458f7f0f103c0e55dce24b4652841cbfd7bdd9ec52b467914"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/contracts.ts",
+      "bytes": 6432,
+      "sha256": "5d8e0084175d74650c1b64d87de45321dcb9de6da7d3f66636fafc72abaa85ce"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/natalengine.d.ts",
+      "bytes": 200,
+      "sha256": "0b1d4622a1baac309c560f50cc52725f6cf79e0503037aa965c46473c023ca18"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/timezones.ts",
+      "bytes": 6102,
+      "sha256": "7598b7fb41240d40481fe93bf88fd727df8b68b48802adaa43537690dfb42079"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/ask-contract.ts",
+      "bytes": 9532,
+      "sha256": "388d3fd29effed15482ca201a8022907da57f62dada201ac8e11042e449041a4"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/ask-selection.ts",
+      "bytes": 4780,
+      "sha256": "2d4d81b464f111a3dfda7562c2bc1c76dbb0663d31b6aacb722bdafc75c997d4"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/claims.ts",
+      "bytes": 3993,
+      "sha256": "594d6ee8c0a4fe2194bafeedbdfb599a4eeddd188c965e4568294ac9843a24e1"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/connection-inventory.ts",
+      "bytes": 3685,
+      "sha256": "7379e86d8f9f23c91c47dc2ca52650d54c32041560a003a5d26b776c1bfaa453"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/context.ts",
+      "bytes": 12868,
+      "sha256": "d2ef5a006fd737199196efc298be40a86ab34d807892ebee9eeb664fc4dc3eaf"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/contextual-reader-info.ts",
+      "bytes": 20517,
+      "sha256": "eec0c521d9b5fe630580d41f8aeda42bf6ecf2225e72148646001cbbfa51a06b"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/inference.ts",
+      "bytes": 5750,
+      "sha256": "05a776152acdb89004b35454fe8ca5a7dd2655d9bb3db8f735862f18c35436e9"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/mechanics-references.ts",
+      "bytes": 814,
+      "sha256": "22a36d98fcf30abb6fd41573e9410884732054c6ce11808ab274f56fc5d114e8"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/reader-chapters.ts",
+      "bytes": 22282,
+      "sha256": "3b4e611454a9387bb2fb397ab0ff2814cda7ee4ac173490fb4fa8998f86d0e47"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/reader-evidence.ts",
+      "bytes": 2902,
+      "sha256": "154addaae180ef24b0ffaa87f3215623b5d778bfcec4f9d3768eef8d402eeeb7"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/reader-names.ts",
+      "bytes": 1122,
+      "sha256": "c458d81002964cdb2bebd15e9442bb6b8bd5cc672e6a424c9432b0396bd8b6e4"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/reader-preferences.ts",
+      "bytes": 7825,
+      "sha256": "9923dd3810a0f7d0adf7bca62140bf3253c3534ab4c1333c5404b6983314d9c8"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/reader-presentation.ts",
+      "bytes": 558,
+      "sha256": "21e8b5a0eb29ce91b13879f2262a70a2dae1b0de680cbcc49ec10f365d8f01d2"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/relationship-contracts.ts",
+      "bytes": 2368,
+      "sha256": "bb55aa0fe79ab874e52763ebdc6e5983cf33ac29987309ccf5709a3b234fdd3f"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/relationship-phase1-contracts.ts",
+      "bytes": 2360,
+      "sha256": "ac71d24987e312d923588a4759440a2dbb85033f1d434335aff9feb27a2d66ab"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/relationship-reader.ts",
+      "bytes": 20783,
+      "sha256": "243a791b6c8c892ec346fe51bfef9be7980ec53621e2e64b94589ab7eb637e9c"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/relationship-rule-policy.ts",
+      "bytes": 5844,
+      "sha256": "0913d0711b626d04655710f5e93257c0cd0c9c47722383a69260b0f24c1ce9df"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/relationship-structural.ts",
+      "bytes": 9364,
+      "sha256": "b4fcaf932f3c3f79632d3ef4bf5e5364c1f942810335d9c353f025a2c1cc325f"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/relationship.ts",
+      "bytes": 21155,
+      "sha256": "6ee02a89f24da02264187e9ba1595c1e99d288131cb12cec082a638ebd4a456b"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/request-signal.ts",
+      "bytes": 438,
+      "sha256": "94c11fa94f10a6ee953eb9f3f9132f13eec76571bcf80ce60c67b409ef402a6c"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/suggestions.ts",
+      "bytes": 3088,
+      "sha256": "1e130028dd9424855d1159b26d0d270fbf4ec33f301a63b4523cc46b93c67b00"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/intelligence/trace.ts",
+      "bytes": 699,
+      "sha256": "ebdc70481cbc01137ee66953f614e6d880e86c3a1ebe1cc9bebbf4dd41a5e1b0"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/persistence/composite-state.ts",
+      "bytes": 13756,
+      "sha256": "3b1533e0d4a89be081f83becb621ce4f814224de82943dfff577f34ec5d8ff5a"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/persistence/state.ts",
+      "bytes": 4580,
+      "sha256": "c64473eb4b743831c07fb74f89bd1df58c13810214dd595820d2b9b839594746"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/argument-composer.ts",
+      "bytes": 30564,
+      "sha256": "69e5fe57591872c2b1fdfaa9d5f38349f2b5017bf7ec62b1e6409aec5710c9b8"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/argument-source-pins.json",
+      "bytes": 6494,
+      "sha256": "299abc853775206374ded1f9c22ff9a0ab124d6734e0cb14b94a9b7a6f3c3b04"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/catalog.ts",
+      "bytes": 4078,
+      "sha256": "7a93cc2ee2258cdc27d224a5728609240be517acb8a3e78f560d9544ee9cd868"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/chart-index.ts",
+      "bytes": 9806,
+      "sha256": "86fb14a6853e50e5358f25ccad99b5ea790ae7a6cccff3fd6e57fa93f4da4d89"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/compiler.ts",
+      "bytes": 9773,
+      "sha256": "f40dced55f899b116767976239c48045b0991344fcf1e2ca0ee601b26173d0d9"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/contracts.ts",
+      "bytes": 4751,
+      "sha256": "ba28470d02b5ea22b8802d2a2e3915ba53ef2aa280b8fc5cb6ddea60bcfc5f94"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/demo-fixtures.ts",
+      "bytes": 2040,
+      "sha256": "30d62906eaae18b3c9be261204cf7c097e068deb9b051ccd8a74efd4d5afcdf6"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/demo-session.ts",
+      "bytes": 813,
+      "sha256": "00314f0f5304543e2ebd8ed047802d15544727b4a0de2223ea9b954c5022d532"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/discovery.ts",
+      "bytes": 15036,
+      "sha256": "dc7ab8358dfb45e5f493a4b1fa0c7c46ce5673c78d8585ab6bcb8145eb81c4e4"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/eligibility.ts",
+      "bytes": 3230,
+      "sha256": "be52c59462ba1d70482c353561a391cdbb07c3975643af721eee8a8b23dc3c51"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/insights.ts",
+      "bytes": 11516,
+      "sha256": "7f32c32a9166b16ad992b0e8550334e99468764ad1de75d436c0733de553c998"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/llm-contract.ts",
+      "bytes": 2152,
+      "sha256": "f0f0226120c0991de7d1b1d7190a64d3c721ea5866e67c509b53be0ac05f5d68"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/llm-presentation.ts",
+      "bytes": 749,
+      "sha256": "e519c71616731db398468403e0cf9d63e45324f3a3d345cd95c9d40f8ba088e5"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/llm-validation.ts",
+      "bytes": 18975,
+      "sha256": "d4efc5931f93d4225554eeca51dc88ab4ab867ada153a42d9c5e5183708162bd"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/local-reader-feedback.ts",
+      "bytes": 1466,
+      "sha256": "70222962b4c4d504f82ef5445846e8d85a44a26010fa415a661397143fa72cc8"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/local-salience.ts",
+      "bytes": 3946,
+      "sha256": "d181f1c412dc393d5f24b46cb8918176287f0f7d9871d1434fa59dea9c982ea0"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/local-selection.ts",
+      "bytes": 5215,
+      "sha256": "50c24bd92d48e24cd38cde0137d887ca144c2233e7d8ee197c723f28be3854fb"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/meaning-relations.ts",
+      "bytes": 4921,
+      "sha256": "31f41849b575eebae36bf5ddb31021d1f3221799b65d8a1f39d75eab4ddc9d94"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/meaning-utilization.ts",
+      "bytes": 2543,
+      "sha256": "844b2b264f6cc097562037e0b66d2d518de610abf36b20a02aa00ee8bd2a801f"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/p1-adapter.ts",
+      "bytes": 1511,
+      "sha256": "eccd70ca0c96a878e0aa486faca590cb8d914b1d3e170ed0ee43bc2b5c51488a"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/planner.ts",
+      "bytes": 74603,
+      "sha256": "1947586fe751fbff518e1a2d0a308c566036b35bd314e12c57650f0a9f6709b6"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/private-session.ts",
+      "bytes": 2334,
+      "sha256": "f0e99b3bdc9996b56342eb003fc48dee8826d6b3923fcf15038e10d557e896dc"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/realization.ts",
+      "bytes": 7258,
+      "sha256": "bcb68f4062abafe338c2014dd7d03ec87691950de1c636699bbb058ca1859042"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/record-relationships.ts",
+      "bytes": 6818,
+      "sha256": "c0f271bb50ef13cfbf8252dd6aa95332ab9c69c79f968c3586c2427de38dc0c7"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/relational-discovery.ts",
+      "bytes": 39022,
+      "sha256": "3a7fec86fbb98393f5f3404cb4fe2895a5ca49a988e01f81f58eb7648141a76a"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/relationship-operations.ts",
+      "bytes": 11355,
+      "sha256": "b8f1d1f7e4d64d04cbca9f7df86b9697be7a69f2fdc94aaa91bae49feec510fb"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/repeated-gate.ts",
+      "bytes": 1567,
+      "sha256": "5a22ff8e9adb82ae6c57cecf7b2fa4bb0cf34cfd6df3b480b11b2d31fbf8ed0d"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/semantic-premises.ts",
+      "bytes": 2927,
+      "sha256": "610b2fa311d85747fcad4f155a39297ed8f091b5ae6672083e4b3aac27bf50fd"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/served-evidence.ts",
+      "bytes": 5589,
+      "sha256": "0b06ade4f7731dbb59c8b445d4ab85aa9d5fb9fac1fcd5eb9fa348888bcfffb2"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/source-policy.ts",
+      "bytes": 1177,
+      "sha256": "9062dbe47d51063f4f156c1ec9c114bc69f3ddddd5cef39cd2454448c9a76806"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/ActualBridgeReading.tsx",
+      "bytes": 4346,
+      "sha256": "a3027e021a61eeeafa41a80761cee49d5d4ed43907c44c93f9650a3e8b93c485"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/BirthLocationInput.tsx",
+      "bytes": 9429,
+      "sha256": "d892567df43a52409e52e6004b9697cabf5e5ac5f4f4d6079060ad334583398c"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/BirthTimeStability.tsx",
+      "bytes": 4185,
+      "sha256": "6c5adc1f41263b3626af8487ee172a7f92906113847d20ccee77979582a5ed80"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/bodygraph-geometry.ts",
+      "bytes": 4933,
+      "sha256": "27e70118d9247964cc1c9b42f0fe4011f13bf00976ecc33bd929bf86a1c4fa1c"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/bodygraph-reference.json",
+      "bytes": 14525,
+      "sha256": "d4f419634f2074823982a826d40cc7e09cd086e807321b0efa49ea36b5709412"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/BodyGraph.tsx",
+      "bytes": 29834,
+      "sha256": "6e61f5f3ec50e0e9690822363c98e9f23e5c44d5fa156ec522078793ad626c1f"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/brand.ts",
+      "bytes": 104,
+      "sha256": "0ee018d9371b290cdacc075cd8df32c1958b63d4d1012eaa9d013c5063ba6d57"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/bridge-explorer-state.ts",
+      "bytes": 3224,
+      "sha256": "9b105b5335daf15e77cb7354d08f1cdc6a580409b2e5a25de351a7cd83e56460"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/BridgeExplorer.tsx",
+      "bytes": 22350,
+      "sha256": "b739aba5ae6a9c5a4e4808640dcc572111f51472d2d73a428449b07604ca7451"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/ChartWorkspace.tsx",
+      "bytes": 17454,
+      "sha256": "6fd0e8bb25af40b0d90a6a880dda6445e2a002a0d1e9cb062ca4ef40715527e7"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/compact-bodygraph-layout.ts",
+      "bytes": 276,
+      "sha256": "74d7203ed26c9167b2b047ba98f0d0cf26f7ac9acc01ebdd2d31bda640bba673"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/composite-temporal-contract.ts",
+      "bytes": 2309,
+      "sha256": "2616ba9fa31408250875fb9b212d522ef5d2da2050087f2b04a5a898655f21a6"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/composite-workspace-model.ts",
+      "bytes": 10854,
+      "sha256": "34ab69e55abcbdb345a3ac2b9f93bcdf12576e3bf0026561201ceadf6792a2f3"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/composite-workspace-state.ts",
+      "bytes": 10019,
+      "sha256": "b395a62c5ff722dd241d2651b56303e813ed6cb37ff45568b37a79a0598335f0"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/CompositeBodyGraph.tsx",
+      "bytes": 14049,
+      "sha256": "b1c6ea88957fded2a095410ce04043034c055d40903adb95505a32d2d9d384fd"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/CompositeWorkspace.tsx",
+      "bytes": 59246,
+      "sha256": "d9218a90a6c1c14b37a847d6b6a6c2827900d98f0c99995911491ae4fb66f6af"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/ConnectionExplorer.tsx",
+      "bytes": 6921,
+      "sha256": "a799f78c1358882de33bf6d6d97a80a538108fd0008c19d1737da8ee22a9a6d6"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/ContextualInfo.tsx",
+      "bytes": 10162,
+      "sha256": "04523131b121206783b63bb4e3c21dc660e22c9f6787f1f72150611d52db3bb6"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/DisplayTimezone.tsx",
+      "bytes": 1791,
+      "sha256": "0dd907d1c710c7daa4035bb6006079636d587fa374290f8a5de8807a2ec767a0"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/EvidenceBadge.tsx",
+      "bytes": 958,
+      "sha256": "309ea674d60ee4bb7e3610a205a46750cef2d248e787f4690b90c9b98902f152"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/HoverPortal.tsx",
+      "bytes": 229,
+      "sha256": "e866cf992a32db7c0b283fa56370449c616d9c3370ddaf5182db09d04a592c32"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/HoverPortal.web.tsx",
+      "bytes": 292,
+      "sha256": "dee4926e0abda93ea0a6fadb513ac886138fabeaa7d072a8734e2bf973c33a64"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/inspector-reading.ts",
+      "bytes": 8485,
+      "sha256": "fdacc516c218f105f64e444e5f7cb7fc5eb2a48c0b981fda5566901ef9df2854"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/Knowledge.tsx",
+      "bytes": 7748,
+      "sha256": "e8ef244ff503d4804ecf9f409b11b51202c006689dbd3703d6934415ebf7910b"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/LocalReadingPreview.tsx",
+      "bytes": 507,
+      "sha256": "b5dcbc6ae1014fa3f4beb3e0fb7f90e910e9d3ade89311f3ec606976f9417d1d"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/MechanicsInspector.tsx",
+      "bytes": 32392,
+      "sha256": "64f03612e13f163f335da8bd18980f141ae28e7094fb0aebf3ba64fc4cdeaad7"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/MechanicsTrace.tsx",
+      "bytes": 7888,
+      "sha256": "80756498b7c023bec118b6f5aa5fd0e64467669872d816c6c7cecc4d5c8a44cc"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/planet-symbols.ts",
+      "bytes": 307,
+      "sha256": "a7071b1368194073189e6a45e06c1435606d7ca5fe9bd2f67a3125c55b871ef9"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/react-dom.d.ts",
+      "bytes": 149,
+      "sha256": "44bf7eb3fdd25dc42954dcd0e5f455b875403ec49dfe0a1ea25733856daf62a8"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/ReaderPreferences.tsx",
+      "bytes": 7617,
+      "sha256": "70eb9703deaece579ad910b66b1e0777d396500b15175c7f566669a316909933"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/ReadingEvidence.tsx",
+      "bytes": 9483,
+      "sha256": "a6904ddcb3eda5937d2b52aaa7bddedcf86dca5e5d4ec9e68160c44de8ad9521"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/relationship-reading-model.ts",
+      "bytes": 2056,
+      "sha256": "82a3cce67c17ff849116f10663ff7f538f711e9c38f4dd8ed09d463195fa0acb"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/relationship-reading-presentation.ts",
+      "bytes": 1579,
+      "sha256": "b0fe7aae5d61feab32cafdfaf8596689b324bd861c1333dc80bfc2b7298d55eb"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/RelationshipReading.tsx",
+      "bytes": 20048,
+      "sha256": "c1ed59791e5a40992cc5b3bc8b42cd058ea15132909886a5463e57b25de617f9"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/SavedReadingExperience.tsx",
+      "bytes": 31123,
+      "sha256": "b8c3079d9cf805a26290d91ec8c7fa8b761aaf5ead2259c5123c1c1a10004723"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/SuggestedQuestions.tsx",
+      "bytes": 3053,
+      "sha256": "232872782e42266fc90d8e03c641dce640da9147b52fc7022c76556f00683f83"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/theme.ts",
+      "bytes": 953,
+      "sha256": "425d26ff604bffe714c5261034f49a2ace78ebb3ea7e933a7292e64ad9399319"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/TimezonePicker.tsx",
+      "bytes": 4275,
+      "sha256": "4abf6c3d8957a8c63e02081439102c1bcb599019eaf2eed92bff221171dab71f"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/ui01-state.ts",
+      "bytes": 5768,
+      "sha256": "bb7d41e1cd896c60c49e78dcfe202ea3ce2afdc531b1ba3986fac3bbbfc36652"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/workspace-model.ts",
+      "bytes": 9254,
+      "sha256": "dfd6998eaf873870aa8e197f576d7d74306365b60b5a071933e7ff75915fa892"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/bodygraph-geometry.test.ts",
+      "bytes": 7579,
+      "sha256": "d324a3ddb58c38dd3acaa0f11cc99437bf540127bf640478ce0ff217f5a3e460"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/bridge-explorer-state.test.ts",
+      "bytes": 10593,
+      "sha256": "98f63a8d2abf36d084e507a9b8d345b618e1defc1a6df67153e546930410b257"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/composite-state.test.ts",
+      "bytes": 10285,
+      "sha256": "843420366738ded5b471347ddc4ec3080bfe1229b90992e609b3593303c329c5"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/composite-workspace-state.test.ts",
+      "bytes": 8053,
+      "sha256": "2d046d26d3ed96ff9951c39e2fb99078b329c82407df925e29fb4e9ff1a539da"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/contextual-reader-info.test.ts",
+      "bytes": 12649,
+      "sha256": "189f90eec3964a895efc5a19aaf032399b115b55d65d0d09746bd5a2214d046f"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/local-llm.test.ts",
+      "bytes": 15813,
+      "sha256": "5bf51408cc2c3acdd3cb4aa1beb1cca1246cf18a9d7adf0578489fb74e90e5ad"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/local-oauth.test.ts",
+      "bytes": 8685,
+      "sha256": "925fef012d804c0aa21ed81efdaae1e6d9b26c75cc78626d632501a4d2638789"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/p3a-selection.test.ts",
+      "bytes": 6474,
+      "sha256": "86b0df91d04f43ac5869e951072a7a39e6ac2621a7b1c69845b6e3fb5c72561d"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/relay-endpoint.test.ts",
+      "bytes": 3440,
+      "sha256": "933e1634015e0fb2cf2759e4b158f97e88dcdc59beedd8fd0e810999eed89902"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/relay.test.ts",
+      "bytes": 9692,
+      "sha256": "4f7f2de33d16d79317b38f39cddec9cc3743837348e966e6b45d22856e116bec"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/timezones.test.ts",
+      "bytes": 5536,
+      "sha256": "25a7812449d94896b4b1127434e3e28d30eb93a88c28d8efda4a957ced364e6e"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/ui01-state.test.ts",
+      "bytes": 4897,
+      "sha256": "4dd88208fa034a2fb7cf31a694350917186aa75986f45bea8f1ce045723e2c38"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/THIRD_PARTY_NOTICES.md",
+      "bytes": 5466,
+      "sha256": "5fb897d7c233d0c2e924b61e3d103e2b824242e4b3bd393c9809d9cfd970b90f"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tsconfig.json",
+      "bytes": 245,
+      "sha256": "dd0d9e37efbed8bea71fee389bb7e26e04bcc860d3a1e7a7d6270e2f3966c569"
+    }
+  ]
+}

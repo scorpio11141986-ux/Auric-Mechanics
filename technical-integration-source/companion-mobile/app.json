@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Auric Mechanics",
+    "slug": "infinity-rae-companion",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "jsEngine": "hermes",
+    "android": { "package": "com.infinityrae.companion", "softwareKeyboardLayoutMode": "resize" },
+    "ios": { "bundleIdentifier": "com.infinityrae.companion" },
+    "web": { "bundler": "metro", "name": "Auric Mechanics" }
+  }
+}
