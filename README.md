@@ -31,3 +31,9 @@ The complete private mobile-opening candidate passed 402 application tests with 
 Independent reading-quality/security review, owner visual acceptance, physical-device checks, source rights and commercial provider eligibility remain open. Full P3 and public deployment are not authorized by this source upload. No deployment workflow is included.
 
 Third-party licensing notices are preserved in `technical-integration-source/companion-mobile/THIRD_PARTY_NOTICES.md`. This export adds no new license or redistribution permission for omitted content.
+
+## Source correction reconciliation — October 24, 2026
+
+A read-only reconciliation compared a source-audit correction candidate with the actual current private dataset and its recorded base. It identified 24 missing comparison copyedits, six different proposed editorial fields to preserve, and source metadata that is largely already present. Provider wording, traditional identities and editorial interpretation remain separate. No dataset replacement, interpretation expansion, source approval or application correction was applied.
+
+Fresh private-baseline checks passed: 57 selected existing tests and six detached probes, with one optional private-input skip; typecheck passed. This is a bounded reconciliation, not another full-app audit or an implemented correction candidate. Implementation is pending owner approval of a versioned review-layer plan. The protected report, datasets, source passages and personal evidence remain excluded from this public export. This commit records status only.

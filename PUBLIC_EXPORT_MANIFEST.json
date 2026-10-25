@@ -43,8 +43,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3759,
-      "sha256": "ea7098f06c2151204f011daa86318552ae1382a9079b7df97e7af32a119a8146"
+      "bytes": 4771,
+      "sha256": "bcd3984e6807d118da0c2e374981b00e9630bbd6b7a16ae5e550994d7d481e3d"
     },
     {
       "path": "technical-integration-source/companion-mobile/App.tsx",
@@ -808,5 +808,11 @@
     }
   ],
   "privateCorrectionScope": "Generic compact-opening support units, phone presentation and single-line navigation; datasets and personal proof artifacts excluded.",
-  "previousPrivateCompletionArchiveSha256": "cf6c68fb6ba6249dee7198b28ebb9b77e16a4e7b81ef5eaa472641c6ef32a8a3"
+  "previousPrivateCompletionArchiveSha256": "cf6c68fb6ba6249dee7198b28ebb9b77e16a4e7b81ef5eaa472641c6ef32a8a3",
+  "sourceAuditReadOnlyCheckpoint": {
+    "ownerLocalDate": "2026-10-24",
+    "status": "READ_ONLY_PROPOSAL_COMPLETE_IMPLEMENTATION_PENDING_OWNER_APPROVAL",
+    "productionCodeOrDataCorrectionApplied": false,
+    "publicScope": "Sanitized documentation status only; full protected review package is excluded."
+  }
 }
