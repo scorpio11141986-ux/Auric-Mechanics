@@ -6,6 +6,9 @@ import { query } from "../content/retrieval";
 import { EvidenceBadge } from "./EvidenceBadge";
 import { theme } from "./theme";
 import { CONCEPTS, conceptGloss, migrateReaderPreferences } from "../intelligence/reader-preferences";
+import {ContextTeaching} from "./ContextTeaching";
+import type {Person} from "../domain/contracts";
+import type {ReaderPreferencesV1} from "../intelligence/reader-preferences";
 import { DEFAULT_PROFILE } from "../domain/contracts";
 
 const categories = ["All", "Basics", "Gates", "Lines", "Channels"] as const;
@@ -16,7 +19,7 @@ const types = {
   Lines: "line",
   Channels: "channel",
 } as const;
-export function Knowledge({ onRecord }: { onRecord: (id: string) => void }) {
+export function Knowledge({ onRecord,person,preferences,onPreferences }: { onRecord: (id: string) => void;person?:Person|null;preferences?:ReaderPreferencesV1;onPreferences?:(p:ReaderPreferencesV1)=>Promise<void> }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
   const [visible, setVisible] = useState(24);
@@ -40,6 +43,7 @@ export function Knowledge({ onRecord }: { onRecord: (id: string) => void }) {
         Your offline reference, with or without a birth chart.
       </Text>
       <EvidenceBadge kind="canonical" />
+      {person&&preferences&&<ContextTeaching people={[person]} preferences={preferences} onPreferences={onPreferences} origin="Knowledge"/>}
       <View style={s.search}>
         <Feather name="search" color={theme.muted} size={18} />
         <TextInput

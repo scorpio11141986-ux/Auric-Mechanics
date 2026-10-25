@@ -1,8 +1,8 @@
 {
   "schema": "AuricPublicCodeExportV1",
-  "createdUtc": "2026-10-24T23:28:07.616031+00:00",
+  "createdUtc": "2026-10-25T23:14:31.964459+00:00",
   "privateDocumentationHead": "5b058a7fb3aad2c1224fb92455830b73f68674b5",
-  "privateCompletionArchiveSha256": "947f3f9d02ba79c8574d498f79fa46ef146846a3e63889bee3ebaa596c4fa8cf",
+  "privateCompletionArchiveSha256": "91de54017cc23d299926457e18e6644f453763f2bd952b1a68b9b3989e2311ef",
   "history": "Normal additive update to the isolated public code history; no private Git objects or reading/source records included.",
   "transformations": [
     {
@@ -28,28 +28,37 @@
     {
       "path": "technical-integration-source/companion-mobile/src/reading/foundation-candidates.ts",
       "reason": "Embedded unapproved interpretation/teaching records; private content module, not public data."
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/context-teaching-content.ts",
+      "reason": "Internal-review interpretation/teaching records and publisher excerpts are private content, not public code."
     }
   ],
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 365,
-      "sha256": "6d0acf09b06c9820edc60b5924510a920bd413f28c350d22ba5564c4c32e505e"
+      "bytes": 369,
+      "sha256": "39038b38c0582aebd163bc532b2f296aaf2752978a79879d3ed323752d7260be"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1416,
+      "sha256": "8a91a0bd511205148291cae36c03fc1750fd5d209ecba968da44de53e03a0035"
     },
     {
       "path": "PUBLIC_EXPORT_SCAN.json",
-      "bytes": 389,
-      "sha256": "86004fc3667f92c9f3b952692effe3967adbaa5516f01a6882d94e45a4bf32d3"
+      "bytes": 361,
+      "sha256": "583ab18f8fa2ef281b7f35b4888f658f926e90bb681a0676bd5aa0980ad934b3"
     },
     {
       "path": "README.md",
-      "bytes": 4771,
-      "sha256": "bcd3984e6807d118da0c2e374981b00e9630bbd6b7a16ae5e550994d7d481e3d"
+      "bytes": 7626,
+      "sha256": "24a251a744002bda736b138d094cd457b05f844ac65959fadec29b0e553df588"
     },
     {
       "path": "technical-integration-source/companion-mobile/App.tsx",
-      "bytes": 68695,
-      "sha256": "1d1639185bde8b2ca08c0b3d718315927190d96d5111840a289cf0f5cd78f025"
+      "bytes": 68953,
+      "sha256": "5f1751b326d4c03f6d6fdd4449f765f53cff3f1a2678d0804b04bdd761d1dfa3"
     },
     {
       "path": "technical-integration-source/companion-mobile/THIRD_PARTY_NOTICES.md",
@@ -128,8 +137,8 @@
     },
     {
       "path": "technical-integration-source/companion-mobile/server/local-reading/auth/protocol.mjs",
-      "bytes": 9054,
-      "sha256": "d3f273c0b998920c609549c18fcb4cbecc3b263e6e3eddacbf6be342a0df184c"
+      "bytes": 10242,
+      "sha256": "1427893e02ced88dbdd52b8596da45147c8aa34845d2fe7e28976b25d41c5119"
     },
     {
       "path": "technical-integration-source/companion-mobile/server/local-reading/auth/secure-store.ps1",
@@ -142,9 +151,14 @@
       "sha256": "f6728ed8c1a601dd7412680749ad9f3ba168d05a6a27e0e7ce8603e2239405d0"
     },
     {
+      "path": "technical-integration-source/companion-mobile/server/local-reading/budgets.ts",
+      "bytes": 1532,
+      "sha256": "7213a21a570b6023be4c2e969a0c06d6c2cf146cf4da655f68b82f31bd9308c2"
+    },
+    {
       "path": "technical-integration-source/companion-mobile/server/local-reading/index-p3a.ts",
-      "bytes": 14451,
-      "sha256": "3767cf7c97aded27f97d0f2351df28cfb77b42bf7f8209587777ae62d6995789"
+      "bytes": 14969,
+      "sha256": "a973754847376f0260151f1801106641cec7b30609e7919f10bc4afb3bbce8fe"
     },
     {
       "path": "technical-integration-source/companion-mobile/server/local-reading/index.ts",
@@ -163,8 +177,8 @@
     },
     {
       "path": "technical-integration-source/companion-mobile/server/local-reading/provider.ts",
-      "bytes": 10386,
-      "sha256": "bcb31b668ccc5410510a62c3d8f62a0dddab8843598c18edc2423244c10637c0"
+      "bytes": 11423,
+      "sha256": "4499e9fdb76ba7aed4acefd66d6deaf62f1011e4ed60e1f7e021476c6c930766"
     },
     {
       "path": "technical-integration-source/companion-mobile/server/local-reading/result.ts",
@@ -192,6 +206,11 @@
       "sha256": "24347aa0e1eb25ccff1c5d186ec0dc65cbff21d10456e636bd2685f51977c263"
     },
     {
+      "path": "technical-integration-source/companion-mobile/src/content/presentation.ts",
+      "bytes": 1571,
+      "sha256": "e2df82c5aa225d9bd771ec9af1a4a3d3c281079e50c6d49789abc5f017cac47a"
+    },
+    {
       "path": "technical-integration-source/companion-mobile/src/content/records.ts",
       "bytes": 5984,
       "sha256": "16dd6f46828213bbff763ea57bfb314298d86de9d12ba2a63d3dc1b81ef19d28"
@@ -215,6 +234,11 @@
       "path": "technical-integration-source/companion-mobile/src/domain/birth.ts",
       "bytes": 5028,
       "sha256": "9bdb3a17a7c7d9f43322e9f7166b34f7fe39f24eb948c56f418a49f15e908305"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/domain/boundary-context.ts",
+      "bytes": 3143,
+      "sha256": "dcad476e5b4116e430ee705e2afb4a533d2dca17ee697b9c0794fb3f0bf7829d"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/domain/bridges-contracts.ts",
@@ -283,8 +307,8 @@
     },
     {
       "path": "technical-integration-source/companion-mobile/src/intelligence/context.ts",
-      "bytes": 12868,
-      "sha256": "d2ef5a006fd737199196efc298be40a86ab34d807892ebee9eeb664fc4dc3eaf"
+      "bytes": 13075,
+      "sha256": "cda09f27dd5b43f4c2493ee6d8e877f61e0bac34692b6a1c890d2e8d8084283c"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/intelligence/contextual-reader-info.ts",
@@ -443,8 +467,8 @@
     },
     {
       "path": "technical-integration-source/companion-mobile/src/reading/llm-contract.ts",
-      "bytes": 2152,
-      "sha256": "f0f0226120c0991de7d1b1d7190a64d3c721ea5866e67c509b53be0ac05f5d68"
+      "bytes": 2408,
+      "sha256": "9d5673ddcaf09df5818c219969144a4c298bdccc9cb0481f16a21e05e236b013"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/reading/llm-presentation.ts",
@@ -457,9 +481,19 @@
       "sha256": "d4efc5931f93d4225554eeca51dc88ab4ab867ada153a42d9c5e5183708162bd"
     },
     {
+      "path": "technical-integration-source/companion-mobile/src/reading/local-discovery.ts",
+      "bytes": 15477,
+      "sha256": "dede6fe05daa5c162bb5dd2c64491844819ec858c1ae232d2766fe45aa43b320"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/reading/local-explanation.ts",
+      "bytes": 17067,
+      "sha256": "cfe9f6fff828ea9e809891e30be271beda90c3d0e9b9dd802b2be48368958051"
+    },
+    {
       "path": "technical-integration-source/companion-mobile/src/reading/local-reader-feedback.ts",
-      "bytes": 1466,
-      "sha256": "70222962b4c4d504f82ef5445846e8d85a44a26010fa415a661397143fa72cc8"
+      "bytes": 1992,
+      "sha256": "8c525115c9921ea201673b605c5e12137bae6c71b17a034d4048d203066043e4"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/reading/local-salience.ts",
@@ -563,8 +597,8 @@
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/ChartWorkspace.tsx",
-      "bytes": 17454,
-      "sha256": "6fd0e8bb25af40b0d90a6a880dda6445e2a002a0d1e9cb062ca4ef40715527e7"
+      "bytes": 17845,
+      "sha256": "ef25a2c102a1a8fa3f3dfc109d49f40beb63d39c358f89c4954033f0eedbf43c"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/CompositeBodyGraph.tsx",
@@ -580,6 +614,11 @@
       "path": "technical-integration-source/companion-mobile/src/ui/ConnectionExplorer.tsx",
       "bytes": 6921,
       "sha256": "a799f78c1358882de33bf6d6d97a80a538108fd0008c19d1737da8ee22a9a6d6"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/src/ui/ContextTeaching.tsx",
+      "bytes": 10354,
+      "sha256": "42d6055ed10a32cfcca50eb77ea5c876c365e02992e7fb29ecffacf30321e393"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/ContextualInfo.tsx",
@@ -608,8 +647,8 @@
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/Knowledge.tsx",
-      "bytes": 7748,
-      "sha256": "e8ef244ff503d4804ecf9f409b11b51202c006689dbd3703d6934415ebf7910b"
+      "bytes": 8206,
+      "sha256": "c48437e0f8b1e304a8fdc05286a2a6bef188daca124deb6b53e6bd020f742184"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/LocalReadingPreview.tsx",
@@ -618,8 +657,8 @@
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/MechanicsInspector.tsx",
-      "bytes": 32392,
-      "sha256": "64f03612e13f163f335da8bd18980f141ae28e7094fb0aebf3ba64fc4cdeaad7"
+      "bytes": 32479,
+      "sha256": "329e1ffe5cd5b7a2edc1a6c4daeba26093eff285c3a50be1b0b4094571d46cef"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/MechanicsTrace.tsx",
@@ -643,8 +682,8 @@
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/SavedReadingExperience.tsx",
-      "bytes": 31932,
-      "sha256": "7a7c7db313f94b6e62d5a329b9fcae016917a5e694ab6c97e277efc096b70f79"
+      "bytes": 33082,
+      "sha256": "2d54c0a1fc6f9de01c156436bb46f4e0fd4f9c0156947aebe675de99b85a7300"
     },
     {
       "path": "technical-integration-source/companion-mobile/src/ui/SuggestedQuestions.tsx",
@@ -762,6 +801,11 @@
       "sha256": "2d046d26d3ed96ff9951c39e2fb99078b329c82407df925e29fb4e9ff1a539da"
     },
     {
+      "path": "technical-integration-source/companion-mobile/tests/context-teaching.test.ts",
+      "bytes": 10082,
+      "sha256": "1446d3c97b8ce85aee9b23c82895b299a7f64b48e098a75566adcfc8deaf5b70"
+    },
+    {
       "path": "technical-integration-source/companion-mobile/tests/contextual-reader-info.test.ts",
       "bytes": 12649,
       "sha256": "189f90eec3964a895efc5a19aaf032399b115b55d65d0d09746bd5a2214d046f"
@@ -780,6 +824,11 @@
       "path": "technical-integration-source/companion-mobile/tests/p3a-selection.test.ts",
       "bytes": 6474,
       "sha256": "86b0df91d04f43ac5869e951072a7a39e6ac2621a7b1c69845b6e3fb5c72561d"
+    },
+    {
+      "path": "technical-integration-source/companion-mobile/tests/reading-budget-usage.test.ts",
+      "bytes": 4950,
+      "sha256": "3c3494e211cd76291e457c0db2bf6818614a0348a3bf951f145a6dae674e7124"
     },
     {
       "path": "technical-integration-source/companion-mobile/tests/relay-endpoint.test.ts",
@@ -807,12 +856,33 @@
       "sha256": "dd0d9e37efbed8bea71fee389bb7e26e04bcc860d3a1e7a7d6270e2f3966c569"
     }
   ],
-  "privateCorrectionScope": "Generic compact-opening support units, phone presentation and single-line navigation; datasets and personal proof artifacts excluded.",
-  "previousPrivateCompletionArchiveSha256": "cf6c68fb6ba6249dee7198b28ebb9b77e16a4e7b81ef5eaa472641c6ef32a8a3",
+  "privateCorrectionScope": "Bounded contextual explanation/structural discovery and local reading reliability; protected content and personal evidence excluded",
+  "previousPrivateCompletionArchiveSha256": "947f3f9d02ba79c8574d498f79fa46ef146846a3e63889bee3ebaa596c4fa8cf",
   "sourceAuditReadOnlyCheckpoint": {
     "ownerLocalDate": "2026-10-24",
     "status": "READ_ONLY_PROPOSAL_COMPLETE_IMPLEMENTATION_PENDING_OWNER_APPROVAL",
     "productionCodeOrDataCorrectionApplied": false,
     "publicScope": "Sanitized documentation status only; full protected review package is excluded."
+  },
+  "privateCanonicalVersion": "1.2.14",
+  "exportSource": "Immutable verified ZIP; active app worktree left read-only",
+  "privateVerification": {
+    "tests": 419,
+    "passed": 418,
+    "failed": 0,
+    "optionalSkipped": 1,
+    "focusedRegressions": 16,
+    "typecheck": "PASS",
+    "newProviderGenerationCalls": 0,
+    "independentEditorialAndReleaseAcceptance": "pending"
+  },
+  "selfHashPolicy": "This manifest excludes itself; all other selected public files, including scan metadata, are hashed.",
+  "publicSubsetVerification": {
+    "oauthAndStreamTests": 13,
+    "budgetUsageCancellationTests": 5,
+    "failed": 0,
+    "providerCalls": "mocked; no live inference",
+    "fullDataDependentSuite": "not run in public checkout; private prerequisites intentionally absent",
+    "privateAppWorktreeModified": false
   }
 }

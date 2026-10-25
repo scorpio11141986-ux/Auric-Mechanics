@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "filesScanned": 155,
+  "filesScanned": 164,
   "hits": [],
-  "corpusPrefixScan": "PASS: no 160-character source field prefix in the selected files",
-  "scope": "Existing public allowlist plus four generic code/test paths; exact person/private-ID markers, token-like literals and substantial corpus-prefix scan. Not universal secret discovery.",
-  "privateContentIncluded": false
+  "corpusPrefixScan": "Protected R4/APP2/Gold field prefixes and long private teaching passages absent",
+  "privateContentIncluded": false,
+  "scope": "Explicit public allowlist, path exclusions, personal markers/birth fixtures and token-like literals; bounded scan, not universal secret detection."
 }

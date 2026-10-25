@@ -86,13 +86,20 @@ export function modelChoices(body) {
     .map(m => ({ slug: m.slug, display_name: m.display_name,
       reasoningEfforts: Array.isArray(m.supported_reasoning_levels) ? m.supported_reasoning_levels.map(r=>r.effort).filter(e=>typeof e==='string') : [] }));
 }
+/** Preserve reported counters; absent cache-write/usage fields remain unknown. */
+export function responseUsage(value){
+ const counters={};
+ const walk=(v,prefix='',depth=0)=>{if(!v||typeof v!=='object'||Array.isArray(v)||depth>2)return;for(const [key,n] of Object.entries(v)){const path=prefix+key;if(typeof n==='number'&&Number.isSafeInteger(n)&&n>=0&&/tokens$/.test(key))counters[path]=n;else if(n&&typeof n==='object')walk(n,path+'.',depth+1);}};walk(value);
+ const pick=(...keys)=>{for(const key of keys)if(counters[key]!==undefined)return counters[key];return null;};
+ return {status:Object.keys(counters).length?'reported':'unavailable',inputTokens:pick('input_tokens'),cachedInputTokens:pick('input_tokens_details.cached_tokens'),cacheWriteTokens:pick('input_tokens_details.cache_write_tokens','input_tokens_details.cache_creation_tokens','input_tokens_details.write_tokens','cache_creation_input_tokens'),outputTokens:pick('output_tokens'),reasoningTokens:pick('output_tokens_details.reasoning_tokens'),totalTokens:pick('total_tokens'),reportedCounters:counters,subscriptionAllowancePercent:null};
+}
 export async function consumeStream(response) {
   requireThat(response.ok, 'HTTP_INFERENCE_FAILED');
   const contentType=response.headers.get('content-type');
   // Some transports omit headers. Accept them only if the body still passes
   // the complete strict SSE and terminal-event validation below.
   requireThat(contentType===null||contentType.includes('text/event-stream'), 'STREAM_FORMAT');
-  let buffer = '', text = '', terminal = null, responseId = null; const decoder = new TextDecoder();
+  let buffer = '', text = '', terminal = null, responseId = null, usage=responseUsage(null); const decoder = new TextDecoder();
   for await (const chunk of response.body) {
     buffer = (buffer + decoder.decode(chunk, { stream: true })).replace(/\r\n/g, '\n');
     requireThat(buffer.length < 4_000_000, 'STREAM_EVENT_TOO_LARGE');
@@ -102,8 +109,10 @@ export async function consumeStream(response) {
       const data = raw.split('\n').filter(l => l.startsWith('data:')).map(l => l.slice(5).trimStart()).join('\n');
       if (!data || data === '[DONE]') continue;
       let event; try { event = JSON.parse(data); } catch { throw new ProofError('STREAM_JSON_INVALID'); }
-      if (event.type === 'response.failed') throw new ProofError(typeof event.response?.error?.code === 'string' && /^[a-zA-Z0-9_]{1,100}$/.test(event.response.error.code) ? event.response.error.code : 'STREAM_FAILED');
-      if (event.type === 'response.incomplete' || event.type === 'error') throw new ProofError('STREAM_INCOMPLETE');
+      if(event.response?.usage)usage=responseUsage(event.response.usage);
+      const failWithUsage=code=>{const error=new ProofError(code);error.usage=usage;throw error;};
+      if (event.type === 'response.failed') failWithUsage(typeof event.response?.error?.code === 'string' && /^[a-zA-Z0-9_]{1,100}$/.test(event.response.error.code) ? event.response.error.code : 'STREAM_FAILED');
+      if (event.type === 'response.incomplete' || event.type === 'error') failWithUsage('STREAM_INCOMPLETE');
       if (event.type === 'response.output_text.delta') { requireThat(!terminal && typeof event.delta === 'string', 'STREAM_ORDER'); text += event.delta; requireThat(text.length < 2_000_000, 'OUTPUT_TOO_LARGE'); }
       if (event.type === 'response.completed') { requireThat(!terminal && event.response?.status === 'completed', 'STREAM_COMPLETION_INVALID'); terminal = 'response.completed'; responseId = event.response.id; }
     }
@@ -111,5 +120,5 @@ export async function consumeStream(response) {
   buffer += decoder.decode();
   requireThat(!buffer.trim(), 'STREAM_TRUNCATED_EVENT');
   requireThat(terminal === 'response.completed' && text.trim(), 'STREAM_INTERRUPTED');
-  return { text, responseId, terminal };
+  return { text, responseId, terminal, usage };
 }

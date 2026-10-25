@@ -1,0 +1,7 @@
+# Auric public code export
+
+The owner has standing authorization, given October 25, 2026, to commit and push completed, verified Auric code changes to the existing main branch without asking for push confirmation each time. Respect later instructions such as keeping a concurrently edited application worktree read-only. Export only the completed checkpoint; do not absorb unfinished edits from another builder.
+
+This checkout is the isolated public code export. Preserve its independent history and the existing origin. Never push private repository history, protected datasets (Gold/R4/F1-F7), teaching/interpretation data modules, source archives, personal birth inputs, named reading text/JSON/traces/screenshots, credentials, local user storage, audit bundles or private canonical records. Do not copy the private checkout wholesale or weaken validation to compensate for missing private content.
+
+Check the branch, remote, working tree and public diff. Use the explicit export allowlist, source identities and privacy/corpus scan. Run appropriate available checks and distinguish private-checkpoint results from public-subset tests. Update PUBLIC_EXPORT_MANIFEST.json and PUBLIC_EXPORT_SCAN.json after changes. The manifest excludes itself to avoid circularity. Finish verification before committing and pushing normally; no force-push, automatic deployment or full P3 acceptance is authorized by this policy.

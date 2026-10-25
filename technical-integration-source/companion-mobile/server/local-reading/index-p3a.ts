@@ -1,3 +1,4 @@
+import {readingLimits,GenerationLeases} from './budgets';
 /** Trusted, loopback-only development runtime. No production or paid fallback. */
 import http from 'node:http';
 import {randomBytes} from 'node:crypto';
@@ -22,6 +23,7 @@ requireLocal(Number.isInteger(port)&&port>1024&&port<65536,'LOCAL_PORT_INVALID')
 const staticRoot=join(app,'.local-reading-dist'),runtime=join(app,'.runtime/local-reading-p3a'),evidence=resolve(process.env.AURIC_LOCAL_READING_EVIDENCE||join(repo,'evidence/p3-a-20261024/runtime'));
 requireLocal(evidence.startsWith(join(repo,'evidence')+sep),'EVIDENCE_PATH_OUTSIDE_WORKSPACE');
 for(const p of [runtime,evidence])mkdirSync(p,{recursive:true});
+const generations=new GenerationLeases();
 const csrf=randomBytes(32).toString('base64url'),grants=new SelectionGrants();
 let receiptCount=0,pending:any=null,authBusy=false,preparing=0;
 const preparationQueue:(()=>void)[]=[];
@@ -57,7 +59,7 @@ async function prepare(clientId:string,token:string,request:unknown,identity:str
   receipt('selection-ready',{caseId:packet.entry.id,selectionIdentity:identity,requestDigest:packet.requestDigest,selectedSavedHashes:(request as any).participants.map((p:any)=>({personId:p.personId,chartVersionId:p.chartVersionId,factsHash:p.factsHash,transportFactsHash:p.transportFactsHash})),participants:packet.model.participants.map(p=>({personId:p.personId,chartVersionId:p.chartVersionId,snapshotHash:p.snapshotHash})),sourceAuthorization:packet.model.authorizationId});
  }catch(e){state.state='failed';state.error=errorCode(e);}finally{preparing--;drainPreparation();}
 }
-async function generate(clientId:string,token:string,model:string,effort:string,requestId:string){
+async function generate(clientId:string,token:string,model:string,effort:string,requestId:string,lease:ReturnType<GenerationLeases['begin']>){
  const job=jobs.get(requestId),p=selections.get(token)?.packet as LocalPacket;
  try{
   grants.require(clientId,token,true);
@@ -69,18 +71,18 @@ async function generate(clientId:string,token:string,model:string,effort:string,
   save(join(folder,'packet.json'),{case:p.entry,requestDigest:p.requestDigest,packetDigest:p.packetDigest,evidence:p.evidence,withheld:p.withheld,selection:p.selection,records:p.records,readingPriorities:p.model.readingPriorities});
   save(join(folder,'model-input.json'),p.model);save(join(folder,'deterministic.json'),p.deterministic);
   job.stage='Writing the complete reading with exact source support';
-  const response=await provider.generate(p,model,effort);
+  const response=await provider.generate(p,model,effort,lease.signal);
   writeFileSync(join(folder,'raw-model.txt'),response.raw,{flag:'wx'});save(join(folder,'request.json'),response.body);
   grants.require(clientId,token,true);
   let value;try{value=JSON.parse(response.raw);}catch{throw Error('MODEL_OUTPUT_NOT_JSON');}
   job.stage='Checking chart identity, evidence and depth';
-  const result=assembleResult(value,p,model,effort);
+  const result={...assembleResult(value,p,model,effort),usage:response.usage};
   save(join(folder,'validated-result.json'),result);
   save(join(folder,'validation.json'),{...result.validation,priorities:checkStandardPriorities(value,p),semanticAcceptance:'pending-independent-review'});
   grants.require(clientId,token,true);
   const path=join(runtime,cacheKey(p,model,effort)+'.json');if(!existsSync(path))save(path,result);
   job.result=result;job.state='completed';job.stage='Ready for review';receipt('reading-ready',{caseId:p.entry.id,requestId,model,effort,requestDigest:p.requestDigest,deepStatus:result.validation.depthStatus});
- }catch(e){job.state='failed';job.error=errorCode(e);job.stage='Model reading unavailable; deterministic reading remains available';receipt('reading-failed',{caseId:p?.entry.id,requestId,code:job.error});}finally{busy.delete(token);}
+ }catch(e){job.state='failed';job.error=errorCode(e);job.stage='Model reading unavailable; deterministic reading remains available';receipt('reading-failed',{caseId:p?.entry.id,requestId,code:job.error});}finally{busy.delete(token);lease.finish();}
 }
 function safePath(pathname:string){const p=resolve(staticRoot,'.'+decodeURIComponent(pathname));requireLocal(p===staticRoot||p.startsWith(staticRoot+sep),'STATIC_PATH_FORBIDDEN');return p;}
 const server=http.createServer(async(req,res)=>{
@@ -104,20 +106,21 @@ const server=http.createServer(async(req,res)=>{
    if(req.method==='GET'&&route==='/session'){
     let models:any[]=[],connected=false,error:string|null=null;
     try{await provider.connection.current();models=await provider.connection.discover();connected=true;}catch(e){error=errorCode(e);}
-    reply(200,{enabled:true,connected,models,csrf,error,authorization:'S42',planUsage:'Uses your authorized ChatGPT plan. No API-key or paid-billing fallback.'});return;
+    reply(200,{enabled:true,connected,models,csrf,error,authorization:'S42',limits:readingLimits(),usageScope:'Reported tokens are not a subscription percentage or measured price.',planUsage:'Uses your authorized ChatGPT plan. No API-key or paid-billing fallback.'});return;
    }
    if(req.method==='POST'&&route==='/auth/start'){const saved=await provider.secureStore('load'),a=newAttempt({hostId:installation.hostId,port,registration:saved?.client_id?saved:undefined});pending=a.attempt;reply(200,{url:a.url});return;}
-   if(req.method==='POST'&&route==='/auth/logout'){grants.clear();reply(200,await provider.connection.signOut());return;}
+   if(req.method==='POST'&&route==='/auth/logout'){generations.clear();grants.clear();reply(200,await provider.connection.signOut());return;}
    if(req.method==='POST'&&route==='/selection'){
     requireLocal(Object.keys(body).every(k=>['clientId','request','csrf'].includes(k)),'UNTRUSTED_REQUEST_FIELDS');
     const request=validateSavedReadingRequest(body.request),identity=savedReadingIdentity(request);
     requireLocal(selections.size<200,'PREPARATION_BUSY');
+    generations.cancelClient(body.clientId);
     const token=randomBytes(24).toString('hex');grants.issue(body.clientId,token,request);
     selections.set(token,{state:'preparing',stage:'Recomputing the selected saved chart revisions',identity});
     reply(202,{token,identity,state:'preparing'});preparationQueue.push(()=>void prepare(body.clientId,token,request,identity));setImmediate(drainPreparation);return;
    }
    const clientId=String(body.clientId||u.searchParams.get('clientId')||''),token=String(body.token||u.searchParams.get('token')||'');
-   if(req.method==='POST'&&route==='/revoke'){grants.require(clientId,token);grants.revoke(clientId);selections.delete(token);reply(200,{revoked:true});return;}
+   if(req.method==='POST'&&route==='/revoke'){grants.require(clientId,token);generations.cancelToken(token);grants.revoke(clientId);selections.delete(token);reply(200,{revoked:true});return;}
    if(req.method==='GET'&&route==='/selection'){
     grants.require(clientId,token);const state=selections.get(token);requireLocal(state,'UNKNOWN_SELECTION');
     if(state.state!=='ready'){reply(200,{state:state.state,stage:state.stage,error:state.error});return;}
@@ -129,8 +132,9 @@ const server=http.createServer(async(req,res)=>{
     grants.require(clientId,token,true);requireLocal(selections.get(token)?.state==='ready','SELECTION_NOT_READY');
     requireLocal(typeof body.model==='string'&&typeof body.effort==='string'&&typeof body.requestNonce==='string'&&/^[a-z\d-]{8,80}$/i.test(body.requestNonce),'INVALID_READING_REQUEST');
     requireLocal(!busy.has(token)&&busy.size<2,'READING_ALREADY_GENERATING');
+    const lease=generations.begin(cacheKey(selections.get(token).packet,body.model,body.effort),clientId,token);
     const requestId=randomBytes(12).toString('hex'),job={requestId,clientId,token,requestNonce:body.requestNonce,state:'running',stage:'Queued',requestDigest:selections.get(token).packet.requestDigest};
-    jobs.set(requestId,job);busy.add(token);reply(202,{requestId,requestNonce:job.requestNonce,requestDigest:job.requestDigest});setImmediate(()=>void generate(clientId,token,body.model,body.effort,requestId));return;
+    jobs.set(requestId,job);busy.add(token);reply(202,{requestId,requestNonce:job.requestNonce,requestDigest:job.requestDigest});setImmediate(()=>void generate(clientId,token,body.model,body.effort,requestId,lease));return;
    }
    if(req.method==='GET'&&route==='/job'){
     grants.require(clientId,token,true);const j=jobs.get(u.searchParams.get('id')||'');requireLocal(j&&j.clientId===clientId&&j.token===token,'UNKNOWN_JOB');

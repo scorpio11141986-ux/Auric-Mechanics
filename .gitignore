@@ -25,3 +25,4 @@ __pycache__/
 **/private/**
 **/readings/**
 **/docs/specifications/**
+**/context-teaching-content.ts

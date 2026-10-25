@@ -1,6 +1,7 @@
+import {readingLimits,type ReadingLimits} from './budgets';
 import {Connection} from './auth/connection.mjs';
 import {secureStore} from './auth/store.mjs';
-import {ENDPOINTS,consumeStream} from './auth/protocol.mjs';
+import {ENDPOINTS,consumeStream,responseUsage} from './auth/protocol.mjs';
 import {LOCAL_LLM_PROMPT_VERSION} from '../../src/reading/llm-contract';
 import {requireLocal} from '../../src/reading/llm-validation';
 import type {LocalPacket} from './packet';
@@ -27,21 +28,28 @@ Discovery={id,conclusion,mechanism,relationKey,claimIds:string[],evidenceIds:str
 Teaching={concept,byFamiliarity:{new:string,type:string,'profile-authority':string,centers:string,'gates-channels':string,advanced:string,practitioner:string},factIds:string[],evidenceIds:string[]}. Teaching is brief CHART-CONTEXTUAL MECHANICAL explanation only, never new psychological interpretation. Supply useful variants for concepts typeStrategy,authority,profile,centers,definition,gates,channels,lines,planets,sides. Definition and Center states are different concepts. Preserve facts and findings across all seven registers. Independent known-concept flags merely hide teaching; they must not remove findings. Missing symbolic teaching should be identified honestly instead of filled with unapproved educational drafts.
 Aim for roughly 50-100 concise claims total, readable paragraphs and at least two new Deep discoveries. No tools or extra fields. Citation matching is not semantic acceptance; the bundle remains pending independent editorial review. Prompt version ${LOCAL_LLM_PROMPT_VERSION}.`;
 
+export function buildProviderRequest(packet:LocalPacket,model:string,effort:string,limits:ReadingLimits=readingLimits()){
+ const text=JSON.stringify(packet.model);if(Buffer.byteLength(INSTRUCTIONS+text,'utf8')>limits.maxInputBytes)throw Error('READING_INPUT_BUDGET_EXCEEDED');
+ return {model,reasoning:{effort},store:false,stream:true,max_output_tokens:limits.maxOutputTokens,instructions:INSTRUCTIONS,input:[{role:'user',content:[{type:'input_text',text}]}]};
+}
 export function createProvider(receipt:(kind:string,data:any)=>void){
  const connection=new Connection({store:secureStore,receipt});
  return {connection,secureStore,
-  async generate(packet:LocalPacket,model:string,effort:string){
+  async generate(packet:LocalPacket,model:string,effort:string,signal?:AbortSignal){
+   const limits=readingLimits(),body=buildProviderRequest(packet,model,effort,limits);if(signal?.aborted)throw Error('GENERATION_CANCELLED');
+   try{
    const models=await connection.discover();const selected=models.find((m:any)=>m.slug===model);
    requireLocal(selected?.reasoningEfforts.includes(effort),'MODEL_OR_EFFORT_NOT_AVAILABLE');
    const session=await connection.current();
-   const body={model,reasoning:{effort},store:false,stream:true,instructions:INSTRUCTIONS,input:[{role:'user',content:[{type:'input_text',text:JSON.stringify(packet.model)}]}]};
-   receipt('request',{endpoint:ENDPOINTS.responses,model,effort,store:false,stream:true,caseId:packet.entry.id,requestDigest:packet.requestDigest,packetDigest:packet.packetDigest,requestKeys:Object.keys(body),promptVersion:LOCAL_LLM_PROMPT_VERSION,noApiKeyFallback:true});
-   const response=await connection.request(ENDPOINTS.responses,{method:'POST',headers:{Authorization:`Bearer ${session.access_token}`,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(900_000)});
+   if(signal?.aborted)throw Error('GENERATION_CANCELLED');
+   receipt('request',{endpoint:ENDPOINTS.responses,model,effort,store:false,stream:true,caseId:packet.entry.id,requestDigest:packet.requestDigest,packetDigest:packet.packetDigest,requestKeys:Object.keys(body),promptVersion:LOCAL_LLM_PROMPT_VERSION,noApiKeyFallback:true,limits,inputUtf8Bytes:Buffer.byteLength(INSTRUCTIONS+JSON.stringify(packet.model),'utf8')});
+   const response=await connection.request(ENDPOINTS.responses,{method:'POST',headers:{Authorization:`Bearer ${session.access_token}`,'Content-Type':'application/json'},body:JSON.stringify(body),signal:signal?AbortSignal.any([signal,AbortSignal.timeout(900_000)]):AbortSignal.timeout(900_000)});
    receipt('response-headers',{status:response.status,contentType:response.headers.get('content-type'),caseId:packet.entry.id});
    if(!response.ok){let e:any={};try{e=await response.json();}catch{}const code=e?.error?.code;throw Error(typeof code==='string'&&/^[a-z0-9_]{1,100}$/i.test(code)?code:`PROVIDER_HTTP_${response.status}`);}
    const result=await consumeStream(response);
-   receipt('completion',{caseId:packet.entry.id,model,effort,responseId:result.responseId,terminal:result.terminal,requestDigest:packet.requestDigest,semanticReview:'pending'});
-   return {body,raw:result.text,responseId:result.responseId,terminal:result.terminal};
+   receipt('completion',{caseId:packet.entry.id,model,effort,responseId:result.responseId,terminal:result.terminal,requestDigest:packet.requestDigest,semanticReview:'pending',usage:result.usage});
+   return {body,raw:result.text,responseId:result.responseId,terminal:result.terminal,usage:result.usage};
+   }catch(e){receipt('generation-ended',{caseId:packet.entry.id,status:signal?.aborted?'cancellation-requested':'failed',usage:(e as any).usage||responseUsage(null),spentUsageNotRefunded:true});if(signal?.aborted)throw Error('GENERATION_CANCELLED');throw e;}
   }
  };
 }

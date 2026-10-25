@@ -8,12 +8,14 @@ import { planetSymbols } from "./planet-symbols";
 import { MechanicsInspector } from "./MechanicsInspector";
 import { relevantActivations, selectionFromRecord, selectionKey, selectionTitle, type Selection } from "./workspace-model";
 import { currentReader, readerKey, readingSelection, type ChartView, type UI01Action, type UI01State } from "./ui01-state";
+import {ContextTeaching} from "./ContextTeaching";
+import type {ReaderPreferencesV1} from "../intelligence/reader-preferences";
 import { theme } from "./theme";
 
-export function ChartWorkspace({ person, navigation, railWidth, externalRecord, onEdit, onAsk, onKnowledge, onTrace, onOpenLocalReading, active, state, dispatch }: {
+export function ChartWorkspace({ person, navigation, railWidth, externalRecord, onEdit, onAsk, onKnowledge, onTrace, onOpenLocalReading, preferences, onPreferences, active, state, dispatch }: {
   person: Person; navigation: React.ReactNode; railWidth: number; externalRecord: string | null;
   onEdit: () => void; onAsk: () => void; onKnowledge: () => void; onTrace?: () => void; onOpenLocalReading?:()=>void;
-  active: boolean; state: UI01State; dispatch: React.Dispatch<UI01Action>;
+  preferences?: ReaderPreferencesV1; onPreferences?:(p:ReaderPreferencesV1)=>Promise<void>; active: boolean; state: UI01State; dispatch: React.Dispatch<UI01Action>;
 }) {
   const { width, height, fontScale } = useWindowDimensions();
   const desktop = width >= 1151, sideBySide = width >= 840, rail = width >= 1024;
@@ -119,6 +121,7 @@ export function ChartWorkspace({ person, navigation, railWidth, externalRecord, 
     style={[s.inspector, sideBySide && !pageFlow ? { width: panelWidth, borderLeftWidth: 1 } : pageFlow ? { minHeight: 280 } : { height: readingHeight, maxHeight: state.readingLevel === "compact" ? 240 : undefined }]}>
     <View style={s.actions}>
       {onOpenLocalReading&&action("Personal reading",onOpenLocalReading)}
+      {preferences&&<ContextTeaching people={[person]} preferences={preferences} onPreferences={onPreferences} origin="Chart" active={active}/>}
       {state.readingLevel === "compact" ? action("Expand reading", () => dispatch({ type: "level", level: "expanded" })) : action("Compact overview", () => dispatch({ type: "level", level: "compact" }))}
       {action("Full Reading", () => dispatch({ type: "full", opener: state.readingLevel }), state.readingLevel === "compact" ? compactOpener : opener)}
     </View>

@@ -783,6 +783,8 @@ function Companion() {
         <ChartWorkspace
           key={`${person.birth.id}-${person.birth.updatedAt}`}
           person={person}
+          preferences={readerPreferences||undefined}
+          onPreferences={readerPreferences?updateReaderPreferences:undefined}
           navigation={navigation}
           railWidth={64}
           externalRecord={highlight}
@@ -820,7 +822,7 @@ function Companion() {
             <Text style={s.muted}>Reading context: {readingContext}</Text>
             <Button title="Return to selected reading" onPress={() => goTab("Chart")} />
           </View>}
-          {tab === "Knowledge" && <Knowledge onRecord={setRecordId} />}
+          {tab === "Knowledge" && <Knowledge onRecord={setRecordId} person={person} preferences={readerPreferences||undefined} onPreferences={readerPreferences?updateReaderPreferences:undefined} />}
           {loaded && (edit || (!person && tab === "Chart")) ? birthForm : null}
           {loaded && !edit && tab === "Ask" && (
             <View style={s.section}>

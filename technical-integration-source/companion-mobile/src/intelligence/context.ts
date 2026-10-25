@@ -1,3 +1,5 @@
+import {consumerLineDetail} from '../content/presentation';
+import {chartUncertaintyForDisplay} from '../domain/boundary-context';
 import type {
   AIContextV1,
   Evidence,
@@ -189,7 +191,7 @@ export function contextFor(
         feedback: h.feedback!,
       })),
     uncertainty: [
-      ...chart.uncertainty,
+      ...chartUncertaintyForDisplay(chart),
       ...(resolved?.activationIds.some(id => chart.activations.some(a => a.id === id && !exactLineEligible(chart, a)))
         ? ["Exact Lines are uncertain and withheld. Available Gate-level evidence does not establish an exact-Line interpretation."] : []),
       ...(resolved ? ["Planet and natal side identify calculated occurrences. Fixing planets in source text are not placement-specific planetary teachings; no new planet-role synthesis is supplied."] : []),
@@ -233,7 +235,8 @@ export function detailsFor(id: string) {
   if (doc.type === "line") {
     const line = record as LineRecord;
     return {
-      rich: line.deep_mechanics,
+      rich: consumerLineDetail(line).text,
+      richPresentation: consumerLineDetail(line),
       structure: `Gate ${line.gate_number}, exact Line ${line.line_number}`,
       additional: [] as { label: string; text: string }[],
       agreement: "",

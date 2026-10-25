@@ -1,5 +1,8 @@
 /** Reader messages keep machine validation codes in diagnostic receipts. */
 export function localReaderError(code:string){
+ if(/BUDGET/.test(code))return 'This request exceeds the local reading budget, or its configured limit is invalid. Adjust the local limits before trying again; the deterministic reading remains available.';
+ if(/GENERATING|CAPACITY/.test(code))return 'A matching reading is already being prepared, or the local limit is busy. Wait for it rather than sending a duplicate request.';
+ if(/CANCEL/.test(code))return 'Cancellation was requested. Already used tokens may still count; your deterministic reading remains available.';
  if(/CONSENT/.test(code))return 'Choose whether to allow ChatGPT to use the selected chart facts before generating a reading.';
  if(/TEACHING_|WITHHELD|EXACT_LINE|SOURCE|UNCERTAIN/.test(code))return 'Part of this reading could not be checked against the available interpretation evidence. Restricted meanings remain withheld. You can still explore the chart or use the deterministic reading.';
  if(/SCOPE|PERSON_LABEL|ACTIVATION|FACT_BINDING/.test(code))return 'Part of this reading could not be matched safely to the selected people and chart facts. You can still explore the chart or use the deterministic reading.';

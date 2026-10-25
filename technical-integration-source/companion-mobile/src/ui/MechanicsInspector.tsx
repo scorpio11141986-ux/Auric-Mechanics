@@ -1,3 +1,4 @@
+import {chartUncertaintyForDisplay} from '../domain/boundary-context';
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 import {
   Pressable,
@@ -208,11 +209,11 @@ export function MechanicsInspector({
           {chart.timeWindowAnalysis && <BirthTimeStability report={chart.timeWindowAnalysis} />}
           {row("Type", chart.type, { kind: "chart", focus: "type" })}
           {row("Strategy", chart.strategy, { kind: "chart", focus: "type" })}
+          {row("Profile", chart.profile, { kind: "chart", focus: "profile" })}
           {row("Authority", chart.authority, {
             kind: "chart",
             focus: "authority",
           })}
-          {row("Profile", chart.profile, { kind: "chart", focus: "profile" })}
           {row("Definition", chart.definition, { kind: "definition" })}
           {row(
             "Defined Centers",
@@ -427,7 +428,7 @@ export function MechanicsInspector({
             label="CALCULATION"
             text={`${CALCULATION_LABEL} ${chart.engine.version}; Astronomy Engine ${chart.engine.astronomy}; tropical zodiac; true osculating nodes; 88-degree solar arc. Cross geometry: ${chart.incarnationCross.gates.join("/")}; no conventional title asserted.`}
           />
-          {chart.uncertainty.map((text) => (
+          {chartUncertaintyForDisplay(chart).map((text) => (
             <Text key={text} style={s.small}>
               {text}
             </Text>
@@ -495,8 +496,8 @@ export function MechanicsInspector({
       {recordId && !disposition?.allowed && <Text style={s.small}>Source meaning withheld: {disposition?.reason || "No validated source record"}.</Text>}
       {selection.kind === "chart" && <>
         {row("Type", chart.type, { kind: "chart", focus: "type" })}
-        {row("Authority", chart.authority, { kind: "chart", focus: "authority" })}
         {row("Profile", chart.profile, { kind: "chart", focus: "profile" })}
+        {row("Authority", chart.authority, { kind: "chart", focus: "authority" })}
         {row("Definition", chart.definition, { kind: "definition" })}
         {row("Defined Centers", `${chart.centers.filter(c => c.defined).length} of 9`, { kind: "chart", focus: "centers" })}
         {row("Defined Channels", `${chart.channels.length} completed`, { kind: "chart", focus: "channels" })}
@@ -519,8 +520,8 @@ export function MechanicsInspector({
       </View>
       {selection.kind === "chart" && <>
         {row("Type", chart.type, { kind: "chart", focus: "type" })}
-        {row("Authority", chart.authority, { kind: "chart", focus: "authority" })}
         {row("Profile", chart.profile, { kind: "chart", focus: "profile" })}
+        {row("Authority", chart.authority, { kind: "chart", focus: "authority" })}
         {row("Definition", chart.definition, { kind: "definition" })}
         {row("Defined Centers", `${chart.centers.filter(c => c.defined).length} of 9`, { kind: "chart", focus: "centers" })}
         {row("Defined Channels", `${chart.channels.length} completed`, { kind: "chart", focus: "channels" })}
